@@ -1,0 +1,445 @@
+{UTF-8}
+Glacier effect on Albedo=
+	1e-07 *  3
+	~	1/sq meter
+	~		|
+
+Ocean Outgassing=
+	40
+	~	Gt/Year
+	~		|
+
+Carbon concentration=
+	Carbon in Atmosphere* 1e+12/(Mass of Earth's atmosphere)
+	~	ppm
+	~		|
+
+Mass of Earth's atmosphere=
+	5.148 * 1e+12
+	~	kg
+	~		|
+
+radiative forcing of CO2=
+	100
+	~	W/area
+	~		|
+
+rise in temperature=
+	trapped heat from sun * 0.0001 * 4
+	~	C/Year
+	~		|
+
+Solar Constant=
+	1370
+	~	W/area
+	~	1370
+	|
+
+Temperature= INTEG (
+	rise in temperature,
+		15)
+	~	C
+	~		|
+
+********************************************************
+	.sfd for climate change updated2
+********************************************************~
+		<?xml version="1.0" encoding="UTF-8"?>
+		<richtext version="1.0.0.0" xmlns="http://www.wxwidgets.org">
+		  <paragraphlayout textcolor="#000000" fontpointsize="9" fontfamily="70" \
+		fontstyle="90" fontweight="400" fontunderlined="0" fontface="Segoe UI" \
+		alignment="1" parspacingafter="10" parspacingbefore="0" linespacing="10" \
+		margin-left="5,4098" margin-right="5,4098" margin-top="5,4098" \
+		margin-bottom="5,4098">
+		    <paragraph>
+		      <text></text>
+		    </paragraph>
+		  </paragraphlayout>
+		</richtext>
+	|
+
+earth's albedo=
+	Glaciers * Glacier effect on Albedo
+	~	1
+	~		|
+
+melting rate=
+	10000
+	~	sq meter/(Year*C)
+	~		|
+
+Melting of Glaciers=
+	(Temperature-15) * melting rate
+	~	sq meter/Year
+	~		|
+
+trapped heat from sun=
+	 (Solar Constant*(1- earth's albedo)) + radiative forcing of CO2 * LOG(Carbon concentration\
+		/582, 2)
+	~	W/m2
+	~	logarithmic relationship between CO2 concentration and radiative forcing, or \
+		sometimes simply as the logarithmic formula
+		(Solar Constant*(1- earth's albedo)) + radiative forcing of CO2 * \
+		LOG(Carbon concentration/582, 2)
+	|
+
+Afforestation=
+	5
+	~	MHectare/Year
+	~		|
+
+Glaciers= INTEG (
+	-Melting of Glaciers,
+		706000)
+	~	sq meter
+	~		|
+
+Forest Cover= INTEG (
+	Afforestation-Deforestation,
+		4.06*1000)
+	~	MHectare
+	~		|
+
+Deforestation=
+	50
+	~	MHectare/Year
+	~		|
+
+average CO2 emission per capita per year=
+	4.9
+	~	Ton/Year
+	~		|
+
+birth rate=
+	18.5/1000
+	~	1/Time
+	~		|
+
+births=
+	Population*birth rate
+	~	People/Year
+	~		|
+
+death rate=
+	7.7/1000
+	~	1/Year
+	~		|
+
+deaths=
+	Population*death rate
+	~	People/Year
+	~		|
+
+Population= INTEG (
+	births-deaths,
+		7e+09)
+	~	People
+	~		|
+
+********************************************************
+	.recovered sfd for climate change updated2
+********************************************************~
+		<?xml version="1.0" encoding="UTF-8"?>
+		<richtext version="1.0.0.0" xmlns="http://www.wxwidgets.org">
+		  <paragraphlayout textcolor="#000000" fontpointsize="9" fontfamily="70" \
+		fontstyle="90" fontweight="400" fontunderlined="0" fontface="Segoe UI" \
+		alignment="1" parspacingafter="10" parspacingbefore="0" linespacing="10" \
+		margin-left="5,4098" margin-right="5,4098" margin-top="5,4098" \
+		margin-bottom="5,4098">
+		    <paragraph>
+		      <text></text>
+		    </paragraph>
+		  </paragraphlayout>
+		</richtext>
+	|
+
+Carbon in Atmosphere= INTEG (
+	Burnt Biomass+Carbon Emissions+"Decay of humus,littler and more"+Ocean Outgassing-Atmosphere to Ocean flow\
+		-Net Primary Productivity,
+		3000)
+	~	Gt
+	~		|
+
+Carbon in Deep Ocean= INTEG (
+	Diffusion flow-Ocean Outgassing,
+		2000)
+	~	Gt
+	~		|
+
+Biomass Converstion rate=
+	0.001 * Forest Cover / 100
+	~	
+	~		|
+
+Emissions caused by Humans=
+	Population*average CO2 emission per capita per year/1e+09
+	~	Gt/Year
+	~		|
+
+Atmosphere to Ocean flow=
+	(Equilibrium carbon in ocean layers-Carbon in Ocean Surface) * temperature effect on solubility
+	~	Gt/Year
+	~		|
+
+Biomass= INTEG (
+	Net Primary Productivity-Burnt Biomass-"Decay of humus,littler and more",
+		2000)
+	~	Gt
+	~		|
+
+Biomass Decay rate=
+	0.05
+	~	
+	~		|
+
+Burnt Biomass=
+	Humans Biomass burn rate*Biomass
+	~	Gt/Year
+	~		|
+
+Carbon Emissions=
+	Emissions caused by Humans+Industrial Carbon Emissions
+	~	Gt/Year
+	~		|
+
+Carbon in Ocean Surface= INTEG (
+	Atmosphere to Ocean flow-Diffusion flow,
+		3000)
+	~	Gt
+	~		|
+
+concentration=
+	Carbon in Deep Ocean/100
+	~	Year
+	~		|
+
+"Decay of humus,littler and more"=
+	Biomass*Biomass Decay rate
+	~	Gt/Year
+	~		|
+
+Diffusion flow=
+	Carbon in Ocean Surface/concentration
+	~	Gt/Year
+	~		|
+
+Equilibrium carbon in ocean layers=
+	Carbon in Atmosphere*0.4
+	~	Gt
+	~		|
+
+Humans Biomass burn rate=
+	0.2
+	~	
+	~		|
+
+Industrial Carbon Emissions=
+	100
+	~	Gt/Year
+	~		|
+
+Net Primary Productivity=
+	Biomass Converstion rate*Carbon in Atmosphere
+	~	Gt/Year
+	~		|
+
+temperature effect on solubility=
+	0.1
+	~	
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 10
+	~	Year
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Year
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Year [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Year [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$-1--1--1,0,Arial|14||0-0-0|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,81,0
+10,1,Carbon in Atmosphere,1018,557,146,37,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,2,48,627,561,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,3,5,2,100,0,0,22,0,192,0,-1--1--1,,1|(693,561)|
+1,4,5,1,4,0,0,22,0,192,0,-1--1--1,,1|(816,561)|
+11,5,0,755,561,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,6,Carbon Emissions,755,592,44,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,7,Industrial Carbon Emissions,833,437,53,25,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,8,7,5,1,0,0,0,0,192,0,-1--1--1,,1|(821,493)|
+10,9,Emissions caused by Humans,661,460,44,25,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,10,9,5,1,0,0,0,0,192,0,-1--1--1,,1|(722,513)|
+10,11,Equilibrium carbon in ocean layers,1246,442,58,25,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,12,temperature effect on solubility,1423,439,55,25,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,13,Carbon in Ocean Surface,1417,566,62,23,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,14,Carbon in Deep Ocean,1414,712,49,23,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,15,17,1,100,0,0,22,0,192,0,-1--1--1,,1|(1221,564)|
+1,16,17,13,4,0,0,22,0,192,0,-1--1--1,,1|(1323,564)|
+11,17,0,1285,564,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,18,Atmosphere to Ocean flow,1285,595,62,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,19,concentration,1494,769,62,23,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,20,22,13,100,0,0,22,0,192,0,-1--1--1,,1|(1441,612)|
+1,21,22,14,4,0,0,22,0,192,0,-1--1--1,,1|(1441,668)|
+11,22,0,1441,642,8,6,33,3,0,0,4,0,0,0,0,0,0,0,0,0
+10,23,Diffusion flow,1493,642,44,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,24,Biomass,1023,731,43,23,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,25,1,11,1,0,0,0,0,192,0,-1--1--1,,1|(1110,477)|
+1,26,11,17,1,0,0,0,0,192,0,-1--1--1,,1|(1244,512)|
+1,27,12,17,1,0,0,0,0,192,0,-1--1--1,,1|(1350,520)|
+1,28,13,18,1,0,0,0,0,192,0,-1--1--1,,1|(1349,620)|
+1,29,13,23,1,0,0,0,0,192,0,-1--1--1,,1|(1541,581)|
+1,30,19,23,1,0,0,0,0,192,0,-1--1--1,,1|(1501,734)|
+1,31,14,19,1,0,0,0,0,192,0,-1--1--1,,1|(1424,753)|
+1,32,34,1,100,0,0,22,0,192,0,-1--1--1,,1|(1028,616)|
+1,33,34,24,4,0,0,22,0,192,0,-1--1--1,,1|(1028,681)|
+11,34,0,1028,647,6,8,34,3,0,0,4,0,0,0,0,0,0,0,0,0
+10,35,Net Primary Productivity,1092,647,58,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,36,38,24,100,0,0,22,0,192,0,-1--1--1,,1|(892,731)|
+1,37,38,1,4,0,0,22,0,192,0,-1--1--1,,1|(892,619)|
+11,38,0,892,652,6,8,34,3,0,0,4,0,0,0,0,0,0,0,0,0
+10,39,"Decay of humus,littler and more",960,652,62,25,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,40,42,24,100,0,0,22,0,192,0,-1--1--1,,1|(1159,731)|
+1,41,42,1,4,0,0,22,0,192,0,-1--1--1,,1|(1159,632)|
+11,42,0,1159,679,6,8,34,3,0,0,4,0,0,0,0,0,0,0,0,0
+10,43,Burnt Biomass,1227,679,62,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,44,Humans Biomass burn rate,1275,772,62,25,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,45,44,43,1,0,0,0,0,192,0,-1--1--1,,1|(1231,723)|
+10,46,Biomass Converstion rate,1135,777,58,23,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,47,46,35,1,0,0,0,0,192,0,-1--1--1,,1|(1134,696)|
+10,48,Biomass Decay rate,833,813,49,23,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,49,24,39,1,0,0,0,0,192,0,-1--1--1,,1|(992,683)|
+1,50,48,39,1,0,0,0,0,192,0,-1--1--1,,1|(914,754)|
+1,51,24,43,1,0,0,0,0,192,0,-1--1--1,,1|(1177,711)|
+1,52,1,35,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,53,Population,521,308,48,23,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,54,48,328,308,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,55,60,54,100,0,0,22,0,192,0,-1--1--1,,1|(368,308)|
+1,56,60,53,4,0,0,22,0,192,0,-1--1--1,,1|(442,308)|
+12,57,48,686,308,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,58,62,53,100,0,0,22,0,192,0,-1--1--1,,1|(592,308)|
+1,59,62,57,4,0,0,22,0,192,0,-1--1--1,,1|(652,308)|
+11,60,0,405,308,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,61,births,405,339,43,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+11,62,0,622,308,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,63,deaths,622,339,43,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,64,birth rate,323,428,43,23,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,65,death rate,794,343,46,23,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,66,64,61,1,0,0,0,0,192,0,-1--1--1,,1|(391,383)|
+1,67,65,63,1,0,0,0,0,192,0,-1--1--1,,1|(682,364)|
+1,68,53,60,1,0,0,0,0,192,0,-1--1--1,,1|(428,263)|
+1,69,53,62,1,0,0,0,0,192,0,-1--1--1,,1|(602,257)|
+1,70,53,9,1,0,0,0,0,192,0,-1--1--1,,1|(562,425)|
+1,71,116,14,100,0,0,22,0,192,0,-1--1--1,,1|(1583,712)|
+1,72,116,1,4,0,0,22,0,192,0,-1--1--1,,1|(1018,401)|
+10,73,average CO2 emission per capita per year,451,530,60,32,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,74,73,9,1,0,0,0,0,192,0,-1--1--1,,1|(592,516)|
+10,75,Forest Cover,1194,879,59,23,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,76,48,1367,875,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,77,79,75,100,0,0,22,0,192,0,-1--1--1,,1|(1278,875)|
+1,78,79,76,4,0,0,22,0,192,0,-1--1--1,,1|(1336,875)|
+11,79,0,1310,875,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,80,Deforestation,1310,906,61,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,81,48,1014,877,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,82,84,81,100,0,0,22,0,192,0,-1--1--1,,1|(1051,877)|
+1,83,84,75,4,0,0,22,0,192,0,-1--1--1,,1|(1113,877)|
+11,84,0,1085,877,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,85,Afforestation,1085,908,58,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,86,75,46,1,0,0,0,0,192,0,-1--1--1,,1|(1173,794)|
+10,87,trapped heat from sun,1066,193,57,23,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,88,earth's albedo,1294,196,63,23,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,89,88,87,1,0,0,0,0,192,0,-1--1--1,,1|(1140,241)|
+10,90,Glaciers,1206,81,43,23,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,91,48,1414,78,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,92,94,90,100,0,0,22,0,192,0,-1--1--1,,1|(1288,78)|
+1,93,94,91,4,0,0,22,0,192,0,-1--1--1,,1|(1372,78)|
+11,94,0,1334,78,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,95,Melting of Glaciers,1334,109,45,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,96,90,88,1,0,0,0,0,192,0,-1--1--1,,1|(1289,150)|
+10,97,melting rate,1496,137,53,23,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,98,97,95,1,0,0,0,0,192,0,-1--1--1,,1|(1367,151)|
+10,99,Temperature,1083,81,58,23,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,100,48,911,82,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,101,103,100,100,0,0,22,0,192,0,-1--1--1,,1|(944,82)|
+1,102,103,99,4,0,0,22,0,192,0,-1--1--1,,1|(1002,82)|
+11,103,0,973,82,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,104,rise in temperature,973,113,55,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,105,87,104,1,0,0,0,0,192,0,-1--1--1,,1|(1006,166)|
+1,106,99,94,1,0,0,0,0,192,0,-1--1--1,,1|(1208,19)|
+10,107,Carbon concentration,952,334,60,23,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,108,1,107,1,0,0,0,0,192,0,-1--1--1,,1|(951,424)|
+1,109,107,87,1,0,0,0,0,192,0,-1--1--1,,1|(968,246)|
+10,110,Mass of Earth's atmosphere,809,230,54,25,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,111,110,107,1,0,0,0,0,192,0,-1--1--1,,1|(861,291)|
+10,112,Solar Constant,1147,319,77,23,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,113,112,87,1,0,0,0,0,192,0,-1--1--1,,1|(1070,262)|
+10,114,radiative forcing of CO2,1315,288,44,25,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,115,114,87,1,0,0,0,0,192,0,-1--1--1,,1|(1147,281)|
+11,116,0,1583,401,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,117,Ocean Outgassing,1583,432,52,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,118,Glacier effect on Albedo,1470,271,61,23,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,119,118,88,1,0,0,0,0,192,0,-1--1--1,,1|(1378,202)|
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 2
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,100,0
+///---\\\
+:L<%^E!@
+1:current.vdfx
+4:Time
+5:Afforestation
+9:current
+19:81,0
+24:0
+25:10
+26:10
+23:0
+15:0,0,0,0,0,0
+27:0,
+34:0,
+42:1
+72:0
+73:0
+35:Date
+36:YYYY-MM-DD
+37:2000
+38:1
+39:1
+40:2
+41:0
+95:0
+96:0
+97:0
+77:0
+78:0
+102:1
+93:0
+94:0
+92:0
+91:0
+90:0
+87:0
+75:
+43:
+103:8,8,8,3,8
+105:0,0,0,0,0,0,0,0,0,0
+104:Courier|12||0-0-0|0-0-0|-1--1--1|0-0-255|192-192-192|-1--1--1

@@ -1,0 +1,211 @@
+{UTF-8}
+Atmosphere to Ocean flow  = A FUNCTION OF( Carbon in Ocean Surface,Equilibrium carbon in ocean layers\
+		,temperature effect on solubililty)
+	~	
+	~		|
+
+Atmospheric CO2 concentration  = A FUNCTION OF( Carbon in Atmosphere)
+	~	
+	~		|
+
+Biomass  = A FUNCTION OF( -Burnt Biomass,-"Decay of humus,littler and more",Net Primary Productivity\
+		)
+	~	
+	~		|
+
+Biomass Area  = A FUNCTION OF( )
+	~	
+	~		|
+
+Burning Fossil Fuels  = A FUNCTION OF( Carbon Emissions)
+	~	
+	~		|
+
+Burnt Biomass  = A FUNCTION OF( Humans activity)
+	~	
+	~		|
+
+Carbon Emissions  = A FUNCTION OF( Emissions caused by Humans,Industrial Carbon Emissions\
+		)
+	~	
+	~		|
+
+Carbon in Atmosphere  = A FUNCTION OF( -Atmosphere to Ocean flow,Burnt Biomass,Carbon Emissions\
+		,"Decay of humus,littler and more",-Net Primary Productivity)
+	~	
+	~		|
+
+Carbon in Deep Ocean  = A FUNCTION OF( Diffusion flow)
+	~	
+	~		|
+
+Carbon in Ocean Surface  = A FUNCTION OF( Atmosphere to Ocean flow,-Diffusion flow)
+	~	
+	~		|
+
+concentration  = A FUNCTION OF( Carbon in Deep Ocean)
+	~	
+	~		|
+
+"Decay of humus,littler and more"  = A FUNCTION OF( Biomass)
+	~	
+	~		|
+
+Diffusion flow  = A FUNCTION OF( Carbon in Ocean Surface,concentration)
+	~	
+	~		|
+
+Emissions caused by Humans  = A FUNCTION OF( )
+	~	
+	~		|
+
+Emissions Cumulated  = A FUNCTION OF( Burning Fossil Fuels)
+	~	
+	~		|
+
+Equilibrium carbon in ocean layers  = A FUNCTION OF( Carbon in Atmosphere)
+	~	
+	~		|
+
+Humans activity  = A FUNCTION OF( )
+	~	
+	~		|
+
+Industrial Carbon Emissions  = A FUNCTION OF( )
+	~	
+	~		|
+
+Net Primary Productivity  = A FUNCTION OF( Biomass Area)
+	~	
+	~		|
+
+temperature effect on solubililty  = A FUNCTION OF( )
+	~	
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 100
+	~	Month
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Month
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP 
+	~	Month [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Month [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,100,0
+10,1,Carbon in Atmosphere,495,238,146,37,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,2,48,99,236,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,3,5,2,100,0,0,22,0,192,0,-1--1--1,,1|(165,236)|
+1,4,5,1,4,0,0,22,0,192,0,-1--1--1,,1|(291,236)|
+11,5,0,227,236,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,6,Carbon Emissions,227,267,44,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,7,Emissions Cumulated,282,352,44,23,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,8,48,92,352,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,9,11,8,100,0,0,22,0,192,0,-1--1--1,,1|(133,352)|
+1,10,11,7,4,0,0,22,0,192,0,-1--1--1,,1|(207,352)|
+11,11,0,170,352,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,12,Burning Fossil Fuels,170,383,58,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,13,6,12,1,0,0,0,0,192,0,-1--1--1,,1|(169,310)|
+10,14,Industrial Carbon Emissions,305,112,53,25,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,15,14,5,1,0,0,0,0,192,0,-1--1--1,,1|(293,168)|
+10,16,Emissions caused by Humans,125,105,44,25,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,17,16,5,1,0,0,0,0,192,0,-1--1--1,,1|(191,174)|
+10,18,Atmospheric CO2 concentration,460,90,62,25,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,19,Equilibrium carbon in ocean layers,718,117,58,25,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,20,temperature effect on solubililty,895,114,53,25,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,21,Carbon in Ocean Surface,889,241,62,23,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,22,Carbon in Deep Ocean,886,379,49,23,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,23,25,1,100,0,0,22,0,192,0,-1--1--1,,1|(696,239)|
+1,24,25,21,4,0,0,22,0,192,0,-1--1--1,,1|(795,239)|
+11,25,0,757,239,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,26,Atmosphere to Ocean flow,757,270,62,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,27,concentration,966,444,62,23,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,28,30,21,100,0,0,22,0,192,0,-1--1--1,,1|(887,286)|
+1,29,30,22,4,0,0,22,0,192,0,-1--1--1,,1|(887,338)|
+11,30,0,887,314,8,6,33,3,0,0,4,0,0,0,0,0,0,0,0,0
+10,31,Diffusion flow,939,314,44,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,32,Biomass,495,406,43,23,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,33,1,18,1,0,0,0,0,192,0,-1--1--1,,1|(398,142)|
+1,34,1,19,1,0,0,0,0,192,0,-1--1--1,,1|(584,156)|
+1,35,19,25,1,0,0,0,0,192,0,-1--1--1,,1|(716,187)|
+1,36,20,25,1,0,0,0,0,192,0,-1--1--1,,1|(822,195)|
+1,37,21,26,1,0,0,0,0,192,0,-1--1--1,,1|(821,295)|
+1,38,21,31,1,0,0,0,0,192,0,-1--1--1,,1|(985,273)|
+1,39,27,31,1,0,0,0,0,192,0,-1--1--1,,1|(970,408)|
+1,40,22,27,1,0,0,0,0,192,0,-1--1--1,,1|(894,424)|
+1,41,43,1,100,0,0,22,0,192,0,-1--1--1,,1|(500,294)|
+1,42,43,32,4,0,0,22,0,192,0,-1--1--1,,1|(500,356)|
+11,43,0,500,322,6,8,34,3,0,0,4,0,0,0,0,0,0,0,0,0
+10,44,Net Primary Productivity,564,322,58,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,45,47,32,100,0,0,22,0,192,0,-1--1--1,,1|(364,406)|
+1,46,47,1,4,0,0,22,0,192,0,-1--1--1,,1|(364,297)|
+11,47,0,364,327,6,8,34,3,0,0,4,0,0,0,0,0,0,0,0,0
+10,48,"Decay of humus,littler and more",432,327,62,25,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,49,32,48,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,50,52,32,100,0,0,22,0,192,0,-1--1--1,,1|(631,406)|
+1,51,52,1,4,0,0,22,0,192,0,-1--1--1,,1|(631,310)|
+11,52,0,631,354,6,8,34,3,0,0,4,0,0,0,0,0,0,0,0,0
+10,53,Burnt Biomass,699,354,62,23,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,54,Humans activity,747,447,43,23,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,55,54,53,1,0,0,0,0,192,0,-1--1--1,,1|(703,398)|
+10,56,Biomass Area,607,452,58,23,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,57,56,44,1,0,0,0,0,192,0,-1--1--1,,1|(606,371)|
+///---\\\
+:L<%^E!@
+5:concentration
+19:100,0
+24:0
+25:0
+26:0
+23:0
+15:0,0,0,0,0,0
+27:0,
+34:0,
+42:1
+72:0
+73:0
+35:Date
+36:YYYY-MM-DD
+37:2000
+38:1
+39:1
+40:2
+41:0
+95:0
+96:0
+97:0
+77:0
+78:0
+102:1
+93:0
+94:0
+92:0
+91:0
+90:0
+87:0
+75:
+43:
+103:8,8,8,3,8
+105:0,0,0,0,0,0,0,0,0,0
+104:Courier|12||0-0-0|0-0-0|-1--1--1|0-0-255|192-192-192|-1--1--1
